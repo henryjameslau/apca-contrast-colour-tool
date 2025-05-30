@@ -18,7 +18,7 @@ const dev = process.argv.includes('dev');
 // 	}
 // };
 
-export default {
+const config = {
   kit: {
     adapter: adapter(),
   }
