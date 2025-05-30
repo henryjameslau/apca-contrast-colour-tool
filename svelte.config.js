@@ -21,6 +21,9 @@ const dev = process.argv.includes('dev');
 const config = {
   kit: {
     adapter: adapter(),
+	prerender: {
+      default: true // optional: makes pages static if possible
+    }
   }
 };
 
