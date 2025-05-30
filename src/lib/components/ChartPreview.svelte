@@ -8,7 +8,16 @@
   let barData = [];
   let scatterData = [];
 
+  $:console.log(scatterData)
+
   const categories = ["A", "B", "C", "D"];
+
+  const symbolMap = {
+    A: 'circle',
+    B: 'square',
+    C: 'triangle',
+    D: 'diamond2'
+  };
 
   // Helper to generate random data
   function random(min, max) {
@@ -38,7 +47,8 @@
       Array.from({ length: 30 }, () => ({
         x: Math.random() * 100,
         y: Math.random() * 100,
-        color
+        color,
+        category:categories[Math.floor(Math.random()*4)]
       }))
     );
   }
@@ -48,7 +58,7 @@
 <h2>Line Plot</h2>
 <Plot grid>
   {#each colors as colour,i}
-    <Line x='x' y='y' data={lineData[i]} stroke={colour}/>
+    <Line x='x' y='y' data={lineData[i]} stroke={colour} strokeWidth="3px"/>
   {/each}
 </Plot>
 
@@ -59,5 +69,5 @@
 
 <h2>Scatter Plot</h2>
 <Plot grid>
-  <Dot data={scatterData} x='x' y='y' fill='color' />
+  <Dot data={scatterData} x='x' y='y' fill='color' r={4} stroke='white' strokeWidth='1px' symbol={(d)=>symbolMap[d.category]}/>
 </Plot>
