@@ -9,7 +9,8 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"deploy": "gh-pages -d build"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -33,6 +34,7 @@
 		"chart.js": "^4.4.9",
 		"chroma-js": "^3.1.2",
 		"colorparsley": "^0.1.8",
+		"gh-pages": "^6.3.0",
 		"svelte-awesome-color-picker": "^4.0.2",
 		"svelteplot": "^0.2.9"
 	}
