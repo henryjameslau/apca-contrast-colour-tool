@@ -8,8 +8,6 @@
   let barData = [];
   let scatterData = [];
 
-  $:console.log(scatterData)
-
   const categories = ["A", "B", "C", "D"];
 
   const symbolMap = {
