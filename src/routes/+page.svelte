@@ -39,8 +39,9 @@
 	function loadColorsFromText() {
 		const newColors = colorInputText
 			.split(/[\n,;\s]+/) // Split by new line, comma, semicolon, or space
-			.map((color) => color.trim())
-			.filter((color) => color && isValidColor(color)); // Filter out empty strings and invalid colors
+			.map((color) => color.trim().replace(/^['"]|['"]$/g, ''))//Remove surrounding quotes (single or double)
+			.filter((color) => color && isValidColor(color)) // Filter out empty strings and invalid colors
+			.map(e=>e.startsWith('#') ? e : `#${e}`);//Add '#' if missing for validation and consistency
 
 		if (newColors.length > 0) {
 			colors = newColors;
@@ -187,12 +188,5 @@
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px solid #eee;
-  }
-  .chart-type-selector {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  
+  }  
 </style>

@@ -89,7 +89,7 @@
 						class="contrast-value {getContrastClass(contrast)}"
 						style="color: {getBestTextColor(white)}; background-color: {white};"
 					>
-						{contrast.toFixed(1)}{getContrastEmoji(contrast)}
+						{contrast.toFixed(1)}<br/>{getContrastEmoji(contrast)}
 					</td>
 				{/each}
 			</tr>
@@ -107,7 +107,7 @@
 								class="contrast-value {getContrastClass(contrast)}"
 								style="color: {getBestTextColor(colors[rowIndex])}; background-color: {colors[rowIndex]};"
 							>
-								{contrast.toFixed(1)}
+								{contrast.toFixed(1)}<br/>
 								{getContrastEmoji(contrast)}
 							</td>
 						{/if}
