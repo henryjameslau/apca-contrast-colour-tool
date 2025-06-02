@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Plot, Line, BarX, groupY, stackX, Dot } from "svelteplot";
+  import { Plot, Line, BarX, BarY, Dot, GridX, AxisY, AxisX } from "svelteplot";
 
   export let colors = ["red", "green", "blue"]; // Default trial colors
 
@@ -51,6 +51,8 @@
     );
   }
 
+
+$:console.log(barData)
 </script>
 
 <h2>Line Plot</h2>
@@ -68,4 +70,24 @@
 <h2>Scatter Plot</h2>
 <Plot grid>
   <Dot data={scatterData} x='x' y='y' fill='color' r={4} stroke='white' strokeWidth='1px' symbol={(d)=>symbolMap[d.category]}/>
+</Plot>
+
+<h2>Clustered column</h2>
+<Plot
+    x={{ label: ' ' }}
+    y={{ label: '' }}
+    fx={{
+        axis: 'bottom',
+        axisProps: { fontWeight: 'bold', tickFontSize: 1 },
+        axisOptions: { dy: 20 }
+    }}>
+    <AxisX></AxisX>
+    <BarY
+        data={barData}
+        x="color"
+        y="value"
+        dx={0}
+        fx="category"
+        fill="color"
+        inset={-2} />
 </Plot>

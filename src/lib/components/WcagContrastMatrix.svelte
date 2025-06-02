@@ -1,5 +1,5 @@
 <script>
-	import { getApcaContrast } from '$lib/utils/apca-utils';
+	import { getWcagContrast } from '$lib/utils/apca-utils';
 	import ColorSwatch from './ColourSwatch.svelte';
 	import chroma from 'chroma-js';
 
@@ -17,7 +17,7 @@
 			label: 'vs background',
 			values: colors.map((c) => ({
 				color: c,
-				contrast: getApcaContrast(c, white)
+				contrast: getWcagContrast(c, white)
 			}))
 		};
 		matrix.push(whiteRow);
@@ -31,7 +31,7 @@
 				values: colors.map((c2, j) => ({
 					color: c2,
 					background: c1, // c1 is the background
-					contrast: getApcaContrast(c1, c2)
+					contrast: getWcagContrast(c1, c2)
 				}))
 			};
 			matrix.push(row);
@@ -48,22 +48,22 @@
 
 	function getContrastClass(contrast) {
 		const absContrast = Math.abs(contrast);
-		if (absContrast >= 75) return 'contrast-super'; // Super accessible
-		if (absContrast >= 60) return 'contrast-good'; // Good for larger text
-		if (absContrast >= 45) return 'contrast-fair'; // Fair for regular text
+		if (absContrast >= 7) return 'contrast-super'; // Super accessible
+		if (absContrast >= 4.5) return 'contrast-good'; // Good for larger text
+		if (absContrast >= 3) return 'contrast-fair'; // Fair for regular text
 		return 'contrast-poor'; // Poor contrast
 	}
 
 	function getContrastEmoji(contrast) {
 		const absContrast = Math.abs(contrast);
-		if (absContrast >= 60) return '✅'; // Good
-		if (absContrast >= 45) return '⚠️'; // Fair (needs attention, especially for small text)
+		if (absContrast >= 4.5) return '✅'; // Good
+		if (absContrast >= 3) return '⚠️'; // Fair (needs attention, especially for small text)
 		return '❌'; // Poor
 	}
 </script>
 
 <div class="contrast-matrix">
-	<h2>APCA Contrast Matrix</h2>
+	<h2>WCAG Contrast Matrix</h2>
 	<table>
 		<thead>
 			<tr>
@@ -117,11 +117,11 @@
 		</tbody>
 	</table>
 	<p class="apca-note">
-		APCA values are typically absolute; higher values indicate better contrast.
+		WCAG 2.x Contrast Ratios:
 	</p>
-	<p class="apca-note">✅ >60 Good for larger text</p>
-	<p class="apca-note">⚠️ 45 minimum for lines</p>
-	<p class="apca-note">❌ &lt;45 too low</p>
+	<p class="apca-note">✅ &ge; 4.5:1</p>
+	<p class="apca-note">⚠️ &ge; 3:1</p>
+	<p class="apca-note">❌ Below 3:1</p>
 </div>
 
 <style>

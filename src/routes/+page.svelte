@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import ColorInput from '$lib/components/ColourInput.svelte';
 	import ContrastMatrix from '$lib/components/ContrastMatrix.svelte';
+	import WcagContrastMatrix from '$lib/components/WcagContrastMatrix.svelte';
 	import ChartPreview from '$lib/components/ChartPreview.svelte';
 
 	// Initial colors (can be set by user or from an array)
@@ -100,10 +101,11 @@
 		</div>
 	</section>
 
-	<section class="contrast-analysis">
+	<!-- <section class="contrast-analysis">
 		<h2>2. Contrast Analysis (APCA)</h2>
 		<ContrastMatrix {colors} white={backgroundColour} />
-	</section>
+		<WcagContrastMatrix {colors} white={backgroundColour} />
+	</section> -->
 
 	<section class="chart-preview-section" style="background-color:{backgroundColour};">
 		<h2>3. Chart Previews</h2>

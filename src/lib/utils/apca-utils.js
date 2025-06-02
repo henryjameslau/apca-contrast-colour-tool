@@ -1,5 +1,6 @@
 import { APCAcontrast, sRGBtoY } from 'apca-w3';
 import { colorParsley } from 'colorparsley'
+import colorContrast from 'color-contrast'
 
 /**
  * Calculates the APCA contrast between two colors.
@@ -28,3 +29,7 @@ export function meetsContrastThreshold(contrastValue, threshold) {
 
 // You might add more utility functions here based on specific APCA guidelines
 // e.g., for different text sizes, bolding, etc.
+
+export function getWcagContrast(foreground,background){
+  return colorContrast(foreground,background);
+}
