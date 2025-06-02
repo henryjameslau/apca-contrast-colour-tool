@@ -101,11 +101,11 @@
 		</div>
 	</section>
 
-	<!-- <section class="contrast-analysis">
+	<section class="contrast-analysis">
 		<h2>2. Contrast Analysis (APCA)</h2>
 		<ContrastMatrix {colors} white={backgroundColour} />
 		<WcagContrastMatrix {colors} white={backgroundColour} />
-	</section> -->
+	</section>
 
 	<section class="chart-preview-section" style="background-color:{backgroundColour};">
 		<h2>3. Chart Previews</h2>

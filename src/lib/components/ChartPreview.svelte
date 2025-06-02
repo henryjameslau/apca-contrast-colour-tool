@@ -52,7 +52,6 @@
   }
 
 
-$:console.log(barData)
 </script>
 
 <h2>Line Plot</h2>
