@@ -6,7 +6,7 @@
 	import ChartPreview from '$lib/components/ChartPreview.svelte';
 
 	// Initial colors (can be set by user or from an array)
-	let colors = ['#007bff', '#27A0CC', '#871A5B', '#A8BD3A', '#F66068', '#003C57'];
+	let colors = ['#206095', '#27A0CC', '#871A5B', '#A8BD3A', '#F66068', '#003C57'];
 	let backgroundColour = '#FFFFFF';
 
 	let colorInputText = colors.join('\n'); // Initialize with current colors, one per line
@@ -104,7 +104,10 @@
 	<section class="contrast-analysis">
 		<h2>2. Contrast Analysis (APCA)</h2>
 		<ContrastMatrix {colors} white={backgroundColour} />
-		<WcagContrastMatrix {colors} white={backgroundColour} />
+		<details>
+			<summary>See WCAG contrast matrix for comparison</summary>
+			<WcagContrastMatrix {colors} white={backgroundColour} />
+		</details>
 	</section>
 
 	<section class="chart-preview-section" style="background-color:{backgroundColour};">
